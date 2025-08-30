@@ -1,12 +1,19 @@
 import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
+
 import './globals.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+import Navbar from '@/components/navbar';
+import Header from '@/components/header';
 
 const urbanist = Urbanist({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'Portfolio-Victor Ramirez ',
-	description: 'Portfolio made by Victor Ramirez',
+	title: 'Portfolio Victor Ramirez',
+	description: 'Portfolio Victor Ramirez Created by Victor',
 };
 
 export default function RootLayout({
@@ -16,7 +23,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={urbanist.className}>{children}</body>
+			<body className={urbanist.className}>
+				<Navbar />
+				<Header />
+				{children}
+			</body>
 		</html>
 	);
 }
