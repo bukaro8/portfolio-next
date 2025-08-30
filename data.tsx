@@ -65,34 +65,35 @@ export const itemsNavbar = [
 export const dataAboutPage = [
 	{
 		id: 1,
-		title: 'Frontend Developer',
-		subtitle: 'TechSolutions',
-		description: 'gato loco',
-		date: 'Nov 2023 ',
+		title: 'Web Developer (Internship)',
+		subtitle: 'IPS Central',
+		description:
+			'Worked as a web developer intern using React, Redux, Node.js, Express and MongoDB. Contributed to building and maintaining web applications, improving performance, and collaborating with the team in an Agile environment.',
+		date: '06/2022',
 	},
 	{
 		id: 2,
-		title: 'Creador de Experiencias Digitales',
-		subtitle: 'PixelCrafters',
+		title: 'Full Stack Developer (Bootcamp Project)',
+		subtitle: 'Henry Bootcamp',
 		description:
-			'Trabaja en proyectos emocionantes que desafían los límites de la creatividad y la tecnología. Únete a nosotros mientras creamos experiencias digitales cautivadoras que inspiran y cautivan a nuestros usuarios.',
-		date: 'May 2021',
+			'Built a full-stack e-commerce application using React, Redux, Node.js, Express, PostgreSQL, and MongoDB. Designed RESTful APIs, integrated databases, and deployed with Vercel and Railway.',
+		date: '01/2022',
 	},
 	{
 		id: 3,
-		title: 'Especialista en Desarrollo Frontend',
-		subtitle: 'CodeForge Solutions',
+		title: 'Bootcamp Trainee',
+		subtitle: 'QA Ltd',
 		description:
-			'Como desarrollador frontend, tendrás la oportunidad de colaborar en proyectos diversos y desafiantes que te permitirán expandir tus habilidades y dejar tu huella en el mundo digital.',
-		date: 'Ago 2019',
+			'Completed QA Bootcamp training in Digital & Cloud fundamentals, gaining hands-on experience with modern web technologies and industry practices.',
+		date: '01/2023',
 	},
 	{
 		id: 4,
-		title: 'Prácticas Grado',
-		subtitle: 'WebWizards Inc.',
+		title: 'Web Development Diploma (Ongoing)',
+		subtitle: 'Code Institute / NESCOT College',
 		description:
-			'Únete a nosotros mientras creamos sitios web y aplicaciones interactivas que sorprenden y deleitan a nuestros clientes. Si tienes pasión por el diseño y la programación, y disfrutas colaborar en un entorno creativo, ¡queremos conocerte!        ',
-		date: 'Mar 2018',
+			'Currently studying a Level 5 Diploma in Web Development, deepening my knowledge of software engineering, full-stack development and industry standards.',
+		date: '09/2024',
 	},
 ];
 
