@@ -92,10 +92,6 @@ export default function ContactPage() {
 						>
 							Send message
 						</button>
-
-						{/* Optional: where to send a copy */}
-						{/* <input type="hidden" name="from_name" value="Portfolio Contact Form" /> */}
-						{/* <input type="hidden" name="replyto" value="you@vicdeveloper.co.uk" /> */}
 					</form>
 				</main>
 			</ContainerPage>

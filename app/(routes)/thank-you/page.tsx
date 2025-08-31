@@ -3,6 +3,8 @@ import Link from 'next/link';
 
 import TransitionPage from '@/components/transition-page';
 import ContainerPage from '@/components/container-page';
+import Image from 'next/image';
+import { MotionTransition } from '@/components/transition-component';
 
 export const metadata: Metadata = {
 	title: 'Thank you | Victor Ramirez',
@@ -14,6 +16,18 @@ export default function ThankYouPage() {
 		<>
 			<TransitionPage />
 			<ContainerPage>
+				<MotionTransition
+					position='bottom'
+					className='top-80 left-30 hidden md:inline-block md:absolute '
+				>
+					<Image
+						src='/services.png'
+						width='400'
+						height='400'
+						className='w-full h-full '
+						alt='Particles '
+					/>
+				</MotionTransition>
 				<main className='min-h-[70vh] flex items-start justify-center p-6 bg-transparent'>
 					<div className='max-w-md text-center'>
 						<h1 className='text-3xl md:text-4xl font-bold'>
