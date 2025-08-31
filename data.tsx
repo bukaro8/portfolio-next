@@ -90,22 +90,22 @@ export const dataAboutPage = [
 
 export const dataPortfolio = [
 	{
-		id: 1,
-		title: 'SettleUP',
-		image: '/image-1.png',
-		urlGithub: 'https://github.com/bukaro8/settleUp',
-		urlDemo: 'https://settle-up-tap.netlify.app/',
-	},
-	{
 		id: 2,
-		title: 'Brewers Notes',
+		title: 'Brewers Notes(Django) ',
 		image: '/image-2.png',
 		urlGithub: 'https://github.com/bukaro8/brewnotes',
 		urlDemo: 'https://brewnotes.art',
 	},
 	{
+		id: 1,
+		title: 'SettleUP(React.js)',
+		image: '/image-1.png',
+		urlGithub: 'https://github.com/bukaro8/settleUp',
+		urlDemo: 'https://settle-up-tap.netlify.app/',
+	},
+	{
 		id: 3,
-		title: 'IPS La Central',
+		title: 'IPS La Central(Next.js)',
 		image: '/image-3.png',
 		urlGithub: 'https://github.com/bukaro8/ips-la-central',
 		urlDemo: 'https://www.ipslacentral.com/',
