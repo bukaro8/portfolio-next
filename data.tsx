@@ -91,17 +91,17 @@ export const dataAboutPage = [
 export const dataPortfolio = [
 	{
 		id: 1,
-		title: 'Web Pro',
-		image: '/image-1.jpg',
-		urlGithub: '#!',
-		urlDemo: '#!',
+		title: 'SettleUP',
+		image: '/image-1.png',
+		urlGithub: 'https://github.com/bukaro8/settleUp',
+		urlDemo: 'https://settle-up-tap.netlify.app/',
 	},
 	{
 		id: 2,
 		title: 'Desarrollo Web Ágil',
-		image: '/image-2.jpg',
-		urlGithub: '#!',
-		urlDemo: '#!',
+		image: '/image-2.png',
+		urlGithub: 'https://github.com/bukaro8/brewnotes',
+		urlDemo: 'https://brewnotes.art',
 	},
 	{
 		id: 3,
