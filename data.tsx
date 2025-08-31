@@ -98,16 +98,16 @@ export const dataPortfolio = [
 	},
 	{
 		id: 2,
-		title: 'Desarrollo Web Ágil',
+		title: 'Brewers Notes',
 		image: '/image-2.png',
 		urlGithub: 'https://github.com/bukaro8/brewnotes',
 		urlDemo: 'https://brewnotes.art',
 	},
 	{
 		id: 3,
-		title: 'Estrategias Web',
-		image: '/image-3.jpg',
-		urlGithub: '#!',
-		urlDemo: '#!',
+		title: 'IPS La Central',
+		image: '/image-3.png',
+		urlGithub: 'https://github.com/bukaro8/ips-la-central',
+		urlDemo: 'https://www.ipslacentral.com/',
 	},
 ];
