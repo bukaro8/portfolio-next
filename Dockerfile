@@ -1,20 +1,12 @@
-# --- Build stage ---
-FROM node:20-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build   # creates /app/out because next.config has output: 'export'
-
 # --- Runtime stage (static Nginx, non-root, secure) ---
 FROM nginx:1.27-alpine3.20
 
-# Configure nginx to listen on 3000, hide server tokens, and fix permissions
+# Listen on 3000, hide tokens, fix perms, and write PID in /tmp
 RUN sed -i 's/listen       80;/listen 3000;/' /etc/nginx/conf.d/default.conf \
     && sed -i 's/# server_tokens off;/server_tokens off;/' /etc/nginx/nginx.conf \
-    && chown -R nginx:nginx /var/cache/nginx /var/run /etc/nginx/conf.d /var/log/nginx
+    && sed -i '1s;^;pid /tmp/nginx.pid;\n;' /etc/nginx/nginx.conf \
+    && chown -R nginx:nginx /var/cache/nginx /var/run /etc/nginx/conf.d /var/log/nginx /tmp
 
-# Copy the static files
 COPY --from=builder /app/out /usr/share/nginx/html
 
 EXPOSE 3000
