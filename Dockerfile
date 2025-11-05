@@ -5,15 +5,15 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build && npm run export  # outputs to /app/out
+RUN npm run build 
 
 # ---- Minimal Nginx server (no duplicate pid) ----
 FROM nginx:1.27-alpine3.20
 
 # Remove 'pid' directive and write a simple server config listening on 3000
 RUN sed -i '/^[[:space:]]*pid[[:space:]]\+/d' /etc/nginx/nginx.conf && \
-    mkdir -p /usr/share/nginx/html && \
-    cat > /etc/nginx/conf.d/default.conf <<'NGINX'
+  mkdir -p /usr/share/nginx/html && \
+  cat > /etc/nginx/conf.d/default.conf <<'NGINX'
 server {
   listen 3000;
   server_name _;
