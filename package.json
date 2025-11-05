@@ -2,11 +2,11 @@
   "name": "portfolio-next",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "build": "next build",
-    "export": "next export",
-    "build:static": "npm run build"
-  },
+ "scripts": {
+  "build": "next build",
+  "build:static": "next build"
+}
+,
   "dependencies": {
     "@tsparticles/react": "^3.0.0",
     "framer-motion": "^11.0.3",

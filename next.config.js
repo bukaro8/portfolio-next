@@ -1,8 +1,7 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',                 // creates /out
-  images: { unoptimized: true },    // if you're using next/image
-  trailingSlash: false,             // keep clean URLs
+  output: 'export',         // <- required to generate /out with `next build`
+  images: { unoptimized: true }, // if you use next/image
 };
-module.exports = nextConfig;
+export default nextConfig;
