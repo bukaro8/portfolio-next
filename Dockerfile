@@ -8,19 +8,45 @@ RUN npm ci
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Next 14: output:'export' makes /app/out at build time
+# Next 14 with output:'export' -> writes to /app/out
 RUN npm run build
 
-# ---- Minimal Nginx server ----
+# ---- Nginx to serve the static export ----
 FROM nginx:1.27-alpine3.20
 
-# Clean pid line and serve on :3000
-RUN sed -i '/^[[:space:]]*pid[[:space:]]\+/d' /etc/nginx/nginx.conf && \
-  mkdir -p /usr/share/nginx/html && \
-  cat > /etc/nginx/conf.d/default.conf <<'NGINX'
+# Replace default nginx.conf to log to stdout/stderr and run in foreground
+RUN cat > /etc/nginx/nginx.conf <<'NGINXCONF'
+user  nginx;
+worker_processes  auto;
+
+error_log  /dev/stderr info;
+pid        /var/run/nginx.pid;
+
+events { worker_connections  1024; }
+
+http {
+  include       /etc/nginx/mime.types;
+  default_type  application/octet-stream;
+
+  log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                    '$status $body_bytes_sent "$http_referer" '
+                    '"$http_user_agent" "$http_x_forwarded_for"';
+  access_log  /dev/stdout  main;
+
+  sendfile        on;
+  keepalive_timeout  65;
+
+  include /etc/nginx/conf.d/*.conf;
+}
+NGINXCONF
+
+# Minimal server on :3000 with SPA fallback
+RUN mkdir -p /usr/share/nginx/html && \
+  cat > /etc/nginx/conf.d/default.conf <<'SERVER'
 server {
   listen 3000;
   server_name _;
+
   root /usr/share/nginx/html;
   index index.html;
 
@@ -33,14 +59,13 @@ server {
     try_files $uri =404;
   }
 }
-NGINX
+SERVER
 
-# Copy static export from builder
+# Copy static export from the builder
 COPY --from=builder /app/out/ /usr/share/nginx/html/
 
-RUN chown -R nginx:nginx /var/cache/nginx /var/run /etc/nginx /usr/share/nginx
-USER nginx
-
+# Expose the internal port that Coolify maps (4010:3000)
 EXPOSE 3000
-HEALTHCHECK --interval=30s --timeout=3s --retries=5 CMD wget -qO- http://127.0.0.1:3000/ >/dev/null 2>&1 || exit 1
+
+# Run nginx in foreground (no custom healthcheck needed)
 CMD ["nginx", "-g", "daemon off;"]
