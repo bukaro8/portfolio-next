@@ -26,7 +26,7 @@ export default function ContactPage() {
             <input
               type="hidden"
               name="redirect"
-              value="https://www.portfolio.vicstack.uk/thank-you"
+              value="https://portfolio.vicstack.uk/thank-you"
             />
 
             {/* Anti-spam honeypot (leave hidden) */}
