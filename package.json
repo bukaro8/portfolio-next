@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build"
+    "build": "next build",
+    "export": "next export",
+    "build:static": "npm run build && npm run export"
   },
   "dependencies": {
     "@tsparticles/react": "^3.0.0",
