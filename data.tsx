@@ -94,7 +94,7 @@ export const dataPortfolio = [
     title: "Brewers Notes(Django) ",
     image: "/image-2.png",
     urlGithub: "https://github.com/bukaro8/brewnotes",
-    urlDemo: "https://brewnotes.vicstack.uk",
+    urlDemo: "https://brewnotes.vicdeveloper.co.uk",
   },
   {
     id: 1,
