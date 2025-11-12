@@ -51,8 +51,8 @@ server {
   index index.html;
 
   location / {
-    try_files $uri $uri/ /index.html;
-  }
+    try_files $uri $uri.html $uri/ /index.html;
+}
 
   location ~* \.(js|css|png|jpg|jpeg|gif|svg|ico|woff2?)$ {
     add_header Cache-Control "public, max-age=31536000, immutable";
